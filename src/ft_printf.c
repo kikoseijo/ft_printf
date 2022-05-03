@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:16:32 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 15:25:14 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:50:23 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,11 @@ static void	ft_parse_item(t_print *m)
 		ft_print_s(m, va_arg(m->args, char *));
 	else if (*m->str == 'p')
 		ft_print_p(m, va_arg(m->args, unsigned long long));
+	else if (*m->str == 'd' || *m->str == 'i')
+	{
+		ft_print_int(m, va_arg(m->args, int));
+		m->str++;
+	}
 }
 
 void	ft_free_model(t_print *model)

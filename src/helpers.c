@@ -6,11 +6,29 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:37:17 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 15:29:15 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 16:57:39 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_print_int(t_print *model, int nb)
+{
+	long long	n;
+
+	n = (long long)nb;
+	if (n < 0)
+	{
+		ft_putchar_fd('-', 1);
+		n *= -1;
+		model->str_len += 1;
+	}
+	if (n > 9)
+		ft_print_int(model, n / 10);
+	n = n % 10;
+	model->str_len += 1;
+	ft_putchar_fd(n + '0', 1);
+}
 
 void	ft_puthex(t_print *model, unsigned long long nb)
 {
