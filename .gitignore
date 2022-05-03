@@ -1,6 +1,7 @@
 .on-save.json
 .main.c
 main.c
+maink.c
 test*
 libft/
 a.out.*
