@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:17:35 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 11:44:49 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 15:27:38 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,7 @@ typedef struct s_print
 int			ft_printf(const char *format, ...);
 void		ft_free_model(t_print *model);
 int			is_special_char(char c);
+void		ft_print_p(t_print *model, unsigned long long nb);
+void		ft_puthex(t_print *model, unsigned long long nb);
 
 #endif

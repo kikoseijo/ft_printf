@@ -6,11 +6,27 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:37:17 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 09:09:29 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 15:29:15 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+void	ft_puthex(t_print *model, unsigned long long nb)
+{
+	if (nb >= 16)
+		ft_puthex(model, (unsigned long long)nb / 16);
+	model->str_len += 1;
+	ft_putchar_fd("0123456789abcdef"[nb % 16], 1);
+}
+
+void	ft_print_p(t_print *model, unsigned long long nb)
+{
+	ft_putstr_fd("0x", 1);
+	model->str_len += 2;
+	model->str++;
+	ft_puthex(model, nb);
+}
 
 int	is_special_char(char c)
 {
