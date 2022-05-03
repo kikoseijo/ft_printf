@@ -4,6 +4,7 @@ main.c
 test*
 libft/
 a.out.*
+printfT*
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,c++

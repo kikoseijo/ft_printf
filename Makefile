@@ -6,26 +6,26 @@
 #    By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:13:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/04/25 16:30:36 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/03 12:07:54 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = src/ft_printf.c src/main.c
+SRCS = src/ft_printf.c src/helpers.c
 
 CC = gcc
 
-CFLAGS = -Wall -Werror -Wextra -I.
+CFLAGS = -Wall -Werror -Wextra -I. -I libft
 
 RM = /bin/rm -rf
 
-SRCS = libftprintf.c
+NAME = libftprintf.c
 
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
 $(NAME):
-		$(CC) -c $(CFLAGS) $(SRCS)
+		$(CC) -c $(CFLAGS) $(SRCS) libft/libft.a
 		ar crs $(OBJS) -o $(NAME)
 
 clean:
