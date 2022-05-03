@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:13:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/03 12:56:09 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/03 20:05:58 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,10 +36,8 @@ clean:
 		$(RM) $(OBJS)
 		make -sC ./libft/ clean
 
-fclean:
-		clean
+fclean:	clean
 		$(RM) $(NAME)
-		make -C libft fclean
 
 re:
 		fclean
