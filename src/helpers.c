@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:37:17 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 17:36:10 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:52:05 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,7 @@ void	ft_print_int(t_print *model, int nb)
 	long long	n;
 
 	n = (long long)nb;
-	if (n < 0 && (int)*model->str == 'u')
-	{
-		n *= -1;
-	}
-	else if (n < 0)
+	if (n < 0)
 	{
 		ft_putchar_fd('-', 1);
 		model->str_len += 1;
@@ -66,7 +62,6 @@ void	ft_print_p(t_print *model, unsigned long long nb)
 {
 	ft_putstr_fd("0x", 1);
 	model->str_len += 2;
-	model->str++;
 	ft_puthex(model, nb);
 }
 

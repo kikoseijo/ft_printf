@@ -6,11 +6,25 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:16:32 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/03 17:36:50 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 19:58:32 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static void	ft_print_x(t_print *m, unsigned int nb, char *base)
+{
+	unsigned int	base_len;
+
+	base_len = ft_strlen(base);
+	if (base_len > 1)
+	{
+		if (nb >= base_len)
+			ft_print_x(m, nb / base_len, base);
+		m->str_len++;
+		ft_putchar_fd(base[nb % base_len], 1);
+	}
+}
 
 static void	ft_print_s(t_print *m, char *str)
 {
@@ -43,24 +57,20 @@ static void	ft_parse_item(t_print *m)
 		ft_print_c(m, '%');
 	else if (*m->str == 's')
 		ft_print_s(m, va_arg(m->args, char *));
+	else if (*m->str == 'x')
+		ft_print_x(m, va_arg(m->args, unsigned long long), "0123456789abcdef");
+	else if (*m->str == 'X')
+		ft_print_x(m, va_arg(m->args, unsigned long long), "0123456789ABCDEF");
 	else if (*m->str == 'p')
 		ft_print_p(m, va_arg(m->args, unsigned long long));
 	else if (*m->str == 'd' || *m->str == 'i')
-	{
 		ft_print_int(m, va_arg(m->args, int));
-		m->str++;
-	}
 	else if (*m->str == 'u')
-	{
 		ft_print_uint(m, va_arg(m->args, unsigned int));
+	if (*m->str == 'u' || *m->str == 'p' || *m->str == 'd' || *m->str == 'i')
 		m->str++;
-	}
-}
-
-void	ft_free_model(t_print *model)
-{
-	if (model)
-		free(model);
+	if (*m->str == 'X' || *m->str == 'x')
+		m->str++;
 }
 
 int	ft_printf(const char *format, ...)
@@ -83,9 +93,7 @@ int	ft_printf(const char *format, ...)
 	}
 	va_end(model->args);
 	res = model->str_len;
-	ft_free_model(model);
+	if (model)
+		free(model);
 	return (res);
 }
-/*
-** // ft_free_model(model);
-*/
