@@ -6,19 +6,11 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:37:17 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/04/25 17:51:22 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 09:09:29 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-t_list	init_tlist(t_list flags)
-{
-	flags.width = 0;
-	flags.precision = 0;
-	flags.points = 0;
-	return (flags);
-}
 
 int	is_special_char(char c)
 {

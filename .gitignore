@@ -2,9 +2,9 @@
 .main.c
 main.c
 test*
-libftTester/
-libftTester/**
-ft_splitC.c
+libft/
+a.out.*
+
 
 # Created by https://www.toptal.com/developers/gitignore/api/macos,c++
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,c++

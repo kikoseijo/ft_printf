@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:17:35 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/04/25 17:48:36 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/03 09:30:06 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,26 +20,24 @@
 /*
 ** libraries
 */
+# include "libft.h"
 # include <stdarg.h>
 # include <stdlib.h>
 
-typedef struct s_list
-{
-	int			width;
-	int			points;
-	int			precision;
-}				t_list;
-
 typedef struct s_print
 {
-	int			curr_index;
-	int			is_error;
-	const char	*src_str;
-	char		*print_str;
-	char		*error_msg;
-}				t_print;
+	int		str_len;
+	int		is_error;
+	char	*str;
+	int		width;
+	int		points;
+	int		precision;
+	va_list	args;
+}			t_print;
 
-int				ft_printf(const char *format, ...);
-void			ft_parse_item(t_print *model, void *param);
+int			ft_printf(const char *format, ...);
+void		ft_parse_item(t_print *model);
+void		ft_free_model(t_print *model);
+int			is_special_char(char c);
 
 #endif
