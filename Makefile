@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:13:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/05 16:00:26 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/05 16:10:08 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,23 +22,23 @@ NAME = libftprintf.a
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(NAME)
+all:	$(NAME)
 
 %.o: %.c
-		$(CC) -c $(CFLAGS) $< -I libft -o $(<:.c=.o)
+		@$(CC) -c $(CFLAGS) $< -I libft -o $(<:.c=.o)
 
-$(NAME): $(OBJS)
-		make -C libft
+$(NAME):	$(OBJS)
+		@make -C libft
 		@cp libft/libft.a $(NAME)
-		ar crs $(NAME) $(OBJS)
+		@ar crs $(NAME) $(OBJS)
 
 clean:
-		$(RM) $(OBJS)
-		make -sC ./libft/ clean
+		@$(RM) $(OBJS)
+		@make -sC ./libft/ clean
 
 fclean:	clean
-		$(RM) $(NAME)
+		@$(RM) $(NAME)
 
-re:		fclean $(MAKE)
+re:	fclean	$(MAKE) $(NAME)
 
 .PHONY: all clean fclean re
