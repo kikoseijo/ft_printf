@@ -6,7 +6,7 @@
 #    By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:13:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/04 08:10:46 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/05 16:00:26 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,6 @@ clean:
 fclean:	clean
 		$(RM) $(NAME)
 
-re:		fclean all
+re:		fclean $(MAKE)
 
 .PHONY: all clean fclean re
