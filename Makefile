@@ -6,11 +6,11 @@
 #    By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/25 16:13:17 by jseijo-p          #+#    #+#              #
-#    Updated: 2022/05/05 16:10:08 by jseijo-p         ###   ########.fr        #
+#    Updated: 2022/05/05 18:15:32 by jseijo-p         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = src/ft_printf.c src/helpers.c
+SRCS = src/ft_printf.c src/helpers.c src/ft_print_unint.c src/ft_print_x.c
 
 CC = gcc
 
