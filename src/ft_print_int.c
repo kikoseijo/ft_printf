@@ -6,7 +6,7 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:37:17 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/05 18:27:29 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:33:19 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	ft_print_integer(t_print *model, int nb)
 		n *= -1;
 	}
 	if (n > 9)
-		ft_print_int(model, n / 10);
+		ft_print_integer(model, n / 10);
 	n = n % 10;
 	model->str_len += 1;
 	ft_putchar_fd(n + '0', 1);
