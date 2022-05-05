@@ -6,11 +6,36 @@
 /*   By: jseijo-p <jseijo-p@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/25 16:16:32 by jseijo-p          #+#    #+#             */
-/*   Updated: 2022/05/05 18:14:40 by jseijo-p         ###   ########.fr       */
+/*   Updated: 2022/05/05 18:29:19 by jseijo-p         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	is_special_char(char c)
+{
+	int		i;
+	char	special_chars[10];
+
+	special_chars[0] = 'c';
+	special_chars[1] = 's';
+	special_chars[2] = 'p';
+	special_chars[3] = 'd';
+	special_chars[4] = 'i';
+	special_chars[5] = 'u';
+	special_chars[6] = 'x';
+	special_chars[7] = 'X';
+	special_chars[8] = '%';
+	special_chars[9] = '\0';
+	i = 0;
+	while (special_chars[i])
+	{
+		if (c == special_chars[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 static void	ft_print_s(t_print *m, char *str)
 {
@@ -44,13 +69,13 @@ static void	ft_parse_item(t_print *m)
 	else if (*m->str == 's')
 		ft_print_s(m, va_arg(m->args, char *));
 	else if (*m->str == 'x' || *m->str == 'X')
-		ft_print_x_main(m, va_arg(m->args, unsigned long long));
+		ft_print_x(m, va_arg(m->args, unsigned long long));
 	else if (*m->str == 'p')
 		ft_print_p(m, va_arg(m->args, unsigned long long));
 	else if (*m->str == 'd' || *m->str == 'i')
-		ft_print_int_main(m, va_arg(m->args, int));
+		ft_print_int(m, va_arg(m->args, int));
 	else if (*m->str == 'u')
-		ft_print_uint_main(m, va_arg(m->args, unsigned int));
+		ft_print_uint(m, va_arg(m->args, unsigned int));
 }
 
 int	ft_printf(const char *format, ...)
