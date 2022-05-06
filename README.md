@@ -9,3 +9,5 @@ We will learn about using a variable number of arguments.
 
 - Final grade: 100%
 - Bonus: NO
+
+![jseijo-p's 42 ft_printf Score](https://badge42.vercel.app/api/v2/cl2s2tlio014009mn0nrll98l/project/2572537)
